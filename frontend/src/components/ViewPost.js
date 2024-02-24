@@ -35,7 +35,7 @@ function ViewPost() {
                 navigate('/');
             });
 
-    }, []);
+    }, [httpClient, id, navigate]);
 
     const deletePost = (id) => {
         httpClient.delete(`${API.POST}/${id}`)

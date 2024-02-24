@@ -28,7 +28,7 @@ function Home() {
         httpClient.get(API.POST, { params: { search, tagId, page } })
             .then((response) => setPosts(response.data))
             .catch((error) => console.error(error));
-    }, [search, tagId, page]);
+    }, [search, tagId, page, httpClient]);
 
     // get all tag
     const getTags = () => {

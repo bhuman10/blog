@@ -16,7 +16,6 @@ const EditPost = lazy(() => import('./components/EditPost'));
 export const UserContext = createContext(null);
 
 function App() {
-
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [cookies] = useCookies(['XSRF-TOKEN']);
@@ -25,12 +24,11 @@ function App() {
     headers: { 'X-XSRF-TOKEN': cookies['XSRF-TOKEN'] }
   });
 
-  // get user authentication
   const getUser = () => {
     setIsLoading(true);
     httpClient.get(API.USER)
       .then(response => setUser(response.data || null))
-      .catch(error => console.error(error))
+      .catch(error => console.error("Error fetching user:", error))
       .finally(() => setIsLoading(false));
   };
 
@@ -42,14 +40,11 @@ function App() {
         setIsLoading(false);
       })
       .catch(error => console.error(error));
-  }
+  };
 
   const isSessionExpired = () => {
-    return new Promise((resolve, reject) => {
-      httpClient.get(API.SESSION_EXPIRED)
-        .then(response => resolve(response.data))
-        .catch(error => console.error(error));
-    });
+    return httpClient.get(API.SESSION_EXPIRED)
+      .then(response => response.data);
   };
 
   useEffect(() => {
@@ -57,9 +52,7 @@ function App() {
   }, []);
 
   if (isLoading) {
-    return (
-      <Loading />
-    );
+    return <Loading />;
   }
 
   return (
@@ -79,7 +72,6 @@ function App() {
       </BrowserRouter>
     </UserContext.Provider>
   );
-
 }
 
 export default App;

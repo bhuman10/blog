@@ -37,7 +37,7 @@ function Login({ getUser }) {
                 navigate('/');
             });
 
-    }, []);
+    }, [isSessionExpired, logout, navigate, user]);
 
     const onLogin = (data) => {
 

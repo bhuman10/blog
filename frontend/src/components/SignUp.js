@@ -36,9 +36,10 @@ function SignUp() {
                 navigate('/');
             });
 
-    }, []);
+    }, [isSessionExpired, logout, navigate, user]);
 
     const onSignUp = (data) => {
+    console.log("Entering onSignUp function");
 
         if (data.password !== data.confirmPassword) {
             setError('confirmPassword', { type: 'not_match' });
@@ -51,8 +52,10 @@ function SignUp() {
                 setIsSigningUp(false);
                 if (window.history.length > 2) {
                     // has previous browser’s history
+                    console.log("Navigating back");
                     navigate(-1);
                 } else {
+                console.log("Navigating home");
                     navigate('/');
                 }
             })
@@ -62,6 +65,7 @@ function SignUp() {
                     console.error(error);
                 }
                 setError('username', { type: 'exists' });
+
             });
     };
 
