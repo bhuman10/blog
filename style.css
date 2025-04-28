@@ -1,0 +1,197 @@
+h1{
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 90px;
+    background: linear-gradient(45deg, #00ff87, #60efff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+body {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
+    padding: 0 20px 30px 0;
+    line-height: 1.4;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+    min-height: 100vh;
+}
+.flex-container{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    min-height: 200px;
+    transition: 2s all ease;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+button{
+    border-radius: 8px;
+    color: #abdbe3;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    background: linear-gradient(145deg, #2d2d2d, #1a1a1a);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.flex-item{
+    flex: 0 0 auto;
+    background: cyan;
+    border: 1pt solid black;
+    width: 10px;
+    transition: 0.1s all ease;
+}
+
+.row{
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    gap: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+#input{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.bar {
+    width: 50px;
+    height: 50px;
+    margin: 0 5px;
+    background: linear-gradient(145deg, #6b5b95, #8a7ab5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+    pointer-events: none;
+}
+
+.bar:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+header {
+    background-color: #2d2d2d;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+nav {
+    margin-top: 20px;
+}
+
+.btn {
+    margin: 0 5px;
+}
+
+#size, #speed {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #abdbe3;
+}
+
+input[type="range"] {
+    width: 100px;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    border-radius: 8px;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255,255,255,0.3);
+    box-shadow: 0 0 0 0.2rem rgba(255,255,255,0.1);
+    color: white;
+}
+
+input[type="number"] {
+    width: 80px;
+}
+
+/* Animation for sorting */
+@keyframes compare {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.comparing {
+    animation: compare 0.3s ease;
+    background: linear-gradient(145deg, #ff6b6b, #ff8787) !important;
+}
+
+.sorted {
+    background: linear-gradient(145deg, #4CAF50, #45a049) !important;
+}
+
+.description-container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: left;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.description-container h3 {
+    color: #00ff87;
+    margin-bottom: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.description-container p {
+    color: #abdbe3;
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0 20px;
+}
+
+.description-container.active {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+}
